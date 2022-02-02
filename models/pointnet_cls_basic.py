@@ -2,7 +2,8 @@
     PointNet version 1 Model
     Reference: https://github.com/charlesq34/pointnet
 '''
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import numpy as np
 import math
 import sys
