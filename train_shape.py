@@ -219,7 +219,7 @@ def train_one_epoch(sess, ops, train_writer):
         print("pred: " + str(ops['pred']))
         
         print("----------------------------------------------------------------------------")
-        print("----------------------------------SHAPES----------------------------------)
+        print("----------------------------------SHAPES----------------------------------")
         print("pointclouds_pl: " + str(cur_batch_data.shape))
         print("labels_pl: "+ str(cur_batch_label.shape))
         print("is_training_pl: "+ str(is_training.shape))
