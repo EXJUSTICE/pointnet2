@@ -215,8 +215,8 @@ def train_one_epoch(sess, ops, train_writer):
         print("merged: "+str(ops['merged']))
         print("step: " + str(ops['step']))
         print("train_op: "+str(ops['train_op']))
-        print("loss ": +str(ops['loss']))
-        print("pred" + str(ops['pred']))
+        print("loss: " +str(ops['loss']))
+        print("pred: " + str(ops['pred']))
         
         print("----------------------------------------------------------------------------")
         print("----------------------------------SHAPES----------------------------------)
@@ -226,8 +226,8 @@ def train_one_epoch(sess, ops, train_writer):
         print("merged: "+str(ops['merged'].shape))
         print("step: " + str(ops['step'].shape))
         print("train_op: "+str(ops['train_op'].shape))
-        print("loss ": +str(ops['loss'].shape))
-        print("pred" + str(ops['pred'].shape))
+        print("loss: " +str(ops['loss'].shape))
+        print("pred: " + str(ops['pred'].shape))
               
    
         """
