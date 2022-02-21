@@ -68,7 +68,7 @@ HOSTNAME = socket.gethostname()
 
 NUM_CLASSES = 40
 
-# Shapenet official train/test split
+# Shapenet official train/test split   Note if there is a problem it probably stems from ModelNetDataset switching pyversions
 if FLAGS.normal:
     assert(NUM_POINT<=10000)
     DATA_PATH = os.path.join(ROOT_DIR, 'data/modelnet40_normal_resampled')
@@ -107,6 +107,11 @@ def get_bn_decay(batch):
 def train():
     with tf.Graph().as_default():
         with tf.device('/gpu:'+str(GPU_INDEX)):
+            #pointclouds_pl is the variable we are keen on so check it here
+            print("batch size:" + str(BATCH_SIZE))
+            print("num point:" + str(NUM_POINT))
+            print("initial pointclouds shape:" +str(pointclouds_pl.shape))
+            print("model placeholder inputs": +str(MODEL.placeholder_inputs(BATCH_SIZE, NUM_POINT))
             pointclouds_pl, labels_pl = MODEL.placeholder_inputs(BATCH_SIZE, NUM_POINT)
             is_training_pl = tf.placeholder(tf.bool, shape=())
             
@@ -175,7 +180,8 @@ def train():
             log_string('**** EPOCH %03d ****' % (epoch))
             sys.stdout.flush()
              
-            train_one_epoch(sess, ops, train_writer)
+            #Disabled while we check above
+            #train_one_epoch(sess, ops, train_writer)
             
             #Since we are simply checking size
             """
